@@ -8,10 +8,17 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
  * Ionic pages and navigation.
  */
 
-@IonicPage()
+// @IonicPage()
+// @Component({
+//   selector: 'page-tabs',
+//   templateUrl: 'tabs.html',
+// })
+
+@IonicPage({
+  segment: 'page-tabs'
+})
 @Component({
-  selector: 'page-tabs',
-  templateUrl: 'tabs.html',
+  templateUrl: 'tabs.html'
 })
 export class TabsPage {
 
