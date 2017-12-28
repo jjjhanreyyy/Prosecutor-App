@@ -28,4 +28,19 @@ export class HomePage {
   nav.setRoot('SettingsPage');
   }
 
+  goAddCase(){
+ let nav = this.app.getRootNav();
+
+  nav.push('CaseAddPage');
+  }
+
+    goAddSchedule(){
+    let nav = this.app.getRootNav();
+  nav.push('ScheduleAddPage');
+  }
+
+    goEdit(){
+    this.navCtrl.push('ScheduleEditPage');
+  }
+
 }

@@ -7,8 +7,8 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
  */
-
-@IonicPage()
+@IonicPage({
+})
 @Component({
   selector: 'page-login',
   templateUrl: 'login.html',
@@ -23,7 +23,7 @@ export class LoginPage {
   }
 
   goToRegister(){
-  	this.navCtrl.setRoot('RegisterPage');
+  	this.navCtrl.push('RegisterPage');
   	console.log('HA');
   }
 

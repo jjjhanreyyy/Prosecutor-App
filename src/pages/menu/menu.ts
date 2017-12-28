@@ -9,11 +9,20 @@ export interface PageInterface {
 	icon: string;
 }
 
-@IonicPage()
+// @IonicPage()
+// @Component({
+//   selector: 'page-menu',
+//   templateUrl: 'menu.html',
+// })
+
+@IonicPage({
+  // segment: 'page-menu'
+})
 @Component({
   selector: 'page-menu',
-  templateUrl: 'menu.html',
+  templateUrl: 'menu.html'
 })
+
 export class MenuPage {
 
 	rootPage ="TabsPage";
@@ -21,13 +30,12 @@ export class MenuPage {
 	@ViewChild(Nav) nav: Nav;
 
 	pages: PageInterface[]= [
-		{ title:'Home', pageName: 'TabsPage', tabComponent: 'HomePage', index: 0, icon:'home' },
+		{ title:'Home!', pageName: 'TabsPage', tabComponent: 'HomePage', index: 0, icon:'home' },
 		{ title:'Schedules', pageName: 'TabsPage', tabComponent: 'SchedulePage', index: 1, icon:'timer' },
 		{ title:'Cases', pageName: 'TabsPage', tabComponent: 'CasesPage', index: 2, icon:'briefcase' },
-		{ title:'Settings', pageName: 'SettingsPage', icon:'settings' }
+		{ title:'Settings', pageName: 'SettingsPage', icon:'settings' },
+    { title:'About', pageName: 'AboutPage', icon:'information-circle' }
 		]
-
-
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
@@ -39,11 +47,16 @@ export class MenuPage {
       params = { tabIndex: page.index};
     }
 
-    if (this.nav.getActiveChildNavs()[0] && page.index != undefined) {
+    if (this.nav.getActiveChildNavs().length && page.index != undefined) {
         this.nav.getActiveChildNavs()[0].select(page.index);
         console.log('Else executed umdefined');
     } else {
-      this.nav.setRoot(page.pageName, params);
+// ('MenuPage');
+    this.nav.setRoot(page.pageName, params).catch((err: any) => {
+        console.log(`Didn't set nav root: ${err}`);
+      });
+      // this.nav.push(page.pageName, params); Can be used as a workaround for the bug.
+// this.nav.push(page.pageName, params);
       console.log('Else executed');
     }
   }
@@ -61,10 +74,12 @@ export class MenuPage {
     if (this.nav.getActive() && this.nav.getActive().name === page.pageName) {
       return 'primary';
     }
+     return;
   }
 
   ionViewDidLoad() {
     console.log('MenuPage');
+
   }
 
 }

@@ -22,4 +22,9 @@ export class RegisterPage {
     console.log('ionViewDidLoad RegisterPage');
   }
 
+  doRegister(){
+  	this.navCtrl.setRoot('MenuPage');
+  	alert("You are now jgv.");
+  }
+
 }

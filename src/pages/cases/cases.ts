@@ -22,4 +22,7 @@ export class CasesPage {
     console.log('ionViewDidLoad CasesPage');
   }
 
+  goCasesInfo(){
+  	    this.navCtrl.push('CasesInfoPage');
+  }
 }

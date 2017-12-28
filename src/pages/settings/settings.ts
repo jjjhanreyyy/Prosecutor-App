@@ -12,6 +12,8 @@ import { IonicPage, MenuController, NavController, NavParams } from 'ionic-angul
   selector: 'page-settings',
   templateUrl: 'settings.html',
 })
+
+
 export class SettingsPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public menu: MenuController) {

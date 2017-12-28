@@ -8,6 +8,13 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
  * Ionic pages and navigation.
  */
 
+// @IonicPage({
+//   segment: 'page-about'
+// })
+// @Component({
+//   templateUrl: 'about.html'
+// })
+
 @IonicPage()
 @Component({
   selector: 'page-about',
@@ -20,6 +27,14 @@ export class AboutPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad AboutPage');
+  }
+
+  ionDidEnter(){
+  	console.log('about enter');
+  }
+
+  ionDidLeave(){
+  	console.log('about left');
   }
 
 }
